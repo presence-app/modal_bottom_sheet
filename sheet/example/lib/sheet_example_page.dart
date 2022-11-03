@@ -1,7 +1,7 @@
 import 'package:example/base_scaffold.dart';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 import 'editor/editor_page.dart';
 import 'examples/sheet/bouncing_overflow_sheet.dart';
@@ -45,25 +45,20 @@ class SheetExamplesPage extends StatelessWidget {
             ExampleTile.sheet('Snap', SnapSheet()),
             ExampleTile.sheet('Bouncing', const BounceTopSheet()),
             ExampleTile.sheet('Bouncing overflow', const BounceOverflowSheet()),
-            ExampleTile.sheet(
-                'Clamped sheet (min and max extent)', ClampedSheet()),
+            ExampleTile.sheet('Clamped sheet (min and max extent)', ClampedSheet()),
             const SectionTitle('SCROLLING'),
             ExampleTile.sheet('Scrollabe sheet', ScrollableSheet()),
             ExampleTile.sheet('Scrollabe snap sheet', ScrollableSnapSheet()),
             const SectionTitle('Others'),
             ExampleTile.sheet('Floating sheet', FloatingSheet()),
             ExampleTile.sheet('Fit and Snap sheet', FitSnapSheet()),
-            ExampleTile.sheet(
-                'Fit, Resizable and Bouncing sheet', FitResizableSheet()),
+            ExampleTile.sheet('Fit, Resizable and Bouncing sheet', FitResizableSheet()),
             ExampleTile.sheet('Textfield sheet', TextFieldSheet()),
             ExampleTile.sheet('Foldable screen', FoldableScreenFloatingSheet()),
-            const ExampleTile(
-                title: 'Customizable sheet', page: SheetConfigurationPage()),
+            const ExampleTile(title: 'Customizable sheet', page: SheetConfigurationPage()),
             const SectionTitle('SHOWCASE'),
             ExampleTile(
-                leading: const Icon(Icons.map),
-                title: 'Map BottomSheet Example',
-                page: AdvancedSnapSheetPage()),
+                leading: const Icon(Icons.map), title: 'Map BottomSheet Example', page: AdvancedSnapSheetPage()),
             const SizedBox(height: 60)
           ].addItemInBetween(const Divider(height: 1)),
         ),

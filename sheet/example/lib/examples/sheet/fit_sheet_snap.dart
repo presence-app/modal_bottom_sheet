@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter/widgets.dart';
 import 'package:sheet/sheet.dart';
 
@@ -20,8 +20,7 @@ class _FitSheetState extends State<FitSnapSheet> {
   }
 
   void animateSheet() {
-    controller.relativeAnimateTo(0.2,
-        duration: const Duration(milliseconds: 400), curve: Curves.easeOut);
+    controller.relativeAnimateTo(0.2, duration: const Duration(milliseconds: 400), curve: Curves.easeOut);
   }
 
   @override

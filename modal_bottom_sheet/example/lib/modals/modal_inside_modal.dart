@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class ModalInsideModal extends StatelessWidget {
@@ -11,8 +11,7 @@ class ModalInsideModal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         child: CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-          leading: Container(), middle: Text('Modal Page')),
+      navigationBar: CupertinoNavigationBar(leading: Container(), middle: Text('Modal Page')),
       child: SafeArea(
         bottom: false,
         child: ListView(
@@ -31,8 +30,7 @@ class ModalInsideModal extends StatelessWidget {
                           isDismissible: false,
                           context: context,
                           backgroundColor: Colors.transparent,
-                          builder: (context) =>
-                              ModalInsideModal(reverse: reverse),
+                          builder: (context) => ModalInsideModal(reverse: reverse),
                         )),
               )).toList(),
         ),

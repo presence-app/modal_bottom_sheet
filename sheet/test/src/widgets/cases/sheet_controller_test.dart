@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -54,8 +54,7 @@ void main() {
         tester.getSheetController().jumpTo(-100);
         expect(tester.getSheetExtent(), equals(0));
       });
-      testWidgets('less than minExtent clamps to minExtent',
-          (WidgetTester tester) async {
+      testWidgets('less than minExtent clamps to minExtent', (WidgetTester tester) async {
         await tester.pumpApp(
           Sheet(
             minExtent: 100,
@@ -81,8 +80,7 @@ void main() {
         tester.getSheetController().jumpTo(kScreenHeight + 100);
         expect(tester.getSheetExtent(), equals(kScreenHeight));
       });
-      testWidgets('more than maxExtent clamps to maxExtent',
-          (WidgetTester tester) async {
+      testWidgets('more than maxExtent clamps to maxExtent', (WidgetTester tester) async {
         await tester.pumpApp(
           Sheet(
             maxExtent: 400,
@@ -126,9 +124,7 @@ void main() {
 
       expect(tester.getSheetExtent(), equals(200));
 
-      tester
-          .getSheetController()
-          .animateTo(400, curve: curve, duration: duration);
+      tester.getSheetController().animateTo(400, curve: curve, duration: duration);
       await tester.pumpAndSettle();
       final controller = tester.getSheetController();
       expect(tester.getSheetExtent(), equals(400));
@@ -167,8 +163,7 @@ void main() {
       expect(tester.getSheetExtent(), equals(kScreenHeight * 0.5));
     });
 
-    testWidgets('relativeAnimateTo with min xtent',
-        (WidgetTester tester) async {
+    testWidgets('relativeAnimateTo with min xtent', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           initialExtent: 200,

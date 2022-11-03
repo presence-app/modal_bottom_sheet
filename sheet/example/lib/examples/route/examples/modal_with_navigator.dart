@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class ModalWithNavigator extends StatelessWidget {
   const ModalWithNavigator({super.key});
@@ -10,8 +10,7 @@ class ModalWithNavigator extends StatelessWidget {
       child: Navigator(
         onGenerateRoute: (_) => MaterialPageRoute<void>(
           builder: (BuildContext newContext) => CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(
-                leading: Container(), middle: const Text('Modal Page')),
+            navigationBar: CupertinoNavigationBar(leading: Container(), middle: const Text('Modal Page')),
             child: SafeArea(
               bottom: false,
               child: ListView(

@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:go_router/go_router.dart';
 import 'package:sheet/route.dart';
 
@@ -32,8 +32,7 @@ class _GoRouterBooksAppState extends State<GoRouterBooksApp> {
       routeInformationParser: _router.routeInformationParser,
       routerDelegate: _router.routerDelegate,
       debugShowCheckedModeBanner: false,
-      theme:
-          brightness == Brightness.light ? ThemeData.light() : ThemeData.dark(),
+      theme: brightness == Brightness.light ? ThemeData.light() : ThemeData.dark(),
       title: 'Books App',
       builder: (BuildContext context, Widget? child) {
         return CupertinoTheme(
@@ -67,8 +66,7 @@ class _GoRouterBooksAppState extends State<GoRouterBooksApp> {
               path: 'book/:bid',
               pageBuilder: (BuildContext context, GoRouterState state) {
                 final String id = state.params['bid']!;
-                final Book? book =
-                    books.firstWhereOrNull((Book b) => b.id == id);
+                final Book? book = books.firstWhereOrNull((Book b) => b.id == id);
                 return CupertinoSheetPage<void>(
                   key: state.pageKey,
                   child: BookDetailsScreen(
@@ -78,8 +76,7 @@ class _GoRouterBooksAppState extends State<GoRouterBooksApp> {
               },
               redirect: (GoRouterState state) {
                 final String id = state.params['bid']!;
-                final Book? book =
-                    books.firstWhereOrNull((Book b) => b.id == id);
+                final Book? book = books.firstWhereOrNull((Book b) => b.id == id);
                 if (book == null) {
                   return '/404';
                 }
@@ -111,14 +108,10 @@ class BooksListScreen extends StatelessWidget {
         }),
         middle: const Text('Book'),
         trailing: IconButton(
-          icon: Icon(brightness == Brightness.light
-              ? Icons.nightlight_round
-              : Icons.wb_sunny),
+          icon: Icon(brightness == Brightness.light ? Icons.nightlight_round : Icons.wb_sunny),
           onPressed: () {
             onBrigthnessChanged(
-              brightness == Brightness.light
-                  ? Brightness.dark
-                  : Brightness.light,
+              brightness == Brightness.light ? Brightness.dark : Brightness.light,
             );
           },
         ),
@@ -166,8 +159,7 @@ class BookDetailsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+          Navigator.of(context).push(MaterialPageRoute<void>(builder: (BuildContext context) {
             return Scaffold(
               appBar: AppBar(
                 title: const Text('Invalid'),

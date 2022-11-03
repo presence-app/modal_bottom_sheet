@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -6,8 +6,7 @@ import '../../helpers.dart';
 
 void main() {
   group('SheetMediaQuery', () {
-    testWidgets('top padding is zero if sheet is not inside top safe area',
-        (tester) async {
+    testWidgets('top padding is zero if sheet is not inside top safe area', (tester) async {
       final childKey = UniqueKey();
       await tester.pumpWidget(
         MaterialApp(

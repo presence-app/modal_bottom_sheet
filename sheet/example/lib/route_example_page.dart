@@ -13,7 +13,7 @@ import 'package:example/examples/route/modals/floating_sheet.dart';
 import 'package:example/examples/route/modals/material_sheet.dart';
 import 'package:example/examples/route/navigation/cupertino_page.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/route.dart';
 import 'package:sheet/sheet.dart';
 
@@ -42,8 +42,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Simple sheet'),
                       onTap: () => Navigator.of(context).push(
                         MaterialExtendedPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              CupertinoSharePage(),
+                          builder: (BuildContext context) => CupertinoSharePage(),
                         ),
                       ),
                     ),
@@ -52,8 +51,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Cupertino Photo Share Example'),
                       onTap: () => Navigator.of(context).push(
                         MaterialExtendedPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              CupertinoSharePage(),
+                          builder: (BuildContext context) => CupertinoSharePage(),
                         ),
                       ),
                     ),
@@ -61,8 +59,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Navigator 2.0 - Sheet'),
                       onTap: () => Navigator.of(context).push(
                         MaterialExtendedPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              CupertinoBooksApp(),
+                          builder: (BuildContext context) => CupertinoBooksApp(),
                         ),
                       ),
                     ),
@@ -70,8 +67,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Navigator 2.0 - CupertinoSheet'),
                       onTap: () => Navigator.of(context).push(
                         MaterialExtendedPageRoute<void>(
-                          builder: (BuildContext context) =>
-                              CupertinoBooksApp(),
+                          builder: (BuildContext context) => CupertinoBooksApp(),
                         ),
                       ),
                     ),
@@ -98,8 +94,7 @@ class RouteExamplePage extends StatelessWidget {
                       onTap: () => Navigator.of(context).push(
                         BarSheetRoute<void>(
                           fit: SheetFit.loose,
-                          builder: (BuildContext context) =>
-                              const ModalInsideModal(),
+                          builder: (BuildContext context) => const ModalInsideModal(),
                         ),
                       ),
                     ),
@@ -108,8 +103,7 @@ class RouteExamplePage extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).push(
                           AvatarSheetRoute<void>(
-                            builder: (BuildContext context) =>
-                                const ModalInsideModal(),
+                            builder: (BuildContext context) => const ModalInsideModal(),
                           ),
                         );
                       },
@@ -147,15 +141,13 @@ class RouteExamplePage extends StatelessWidget {
                       },
                     ),
                     ListTile(
-                      title:
-                          const Text('Cupertino Scrollable Sheet with stops'),
+                      title: const Text('Cupertino Scrollable Sheet with stops'),
                       onTap: () {
                         Navigator.of(context).push(
                           CupertinoSheetRoute<void>(
                             initialStop: 0.5,
                             stops: <double>[0, 0.5, 1],
-                            builder: (BuildContext context) =>
-                                const ModalInsideModal(),
+                            builder: (BuildContext context) => const ModalInsideModal(),
                           ),
                         );
                       },
@@ -174,15 +166,13 @@ class RouteExamplePage extends StatelessWidget {
                     ),
                     const SectionTitle('COMPLEX CASES'),
                     ListTile(
-                      title:
-                          const Text('Cupertino Small Modal forced to expand'),
+                      title: const Text('Cupertino Small Modal forced to expand'),
                       onTap: () {
                         Navigator.of(context).push(
                           CupertinoSheetRoute<void>(
                             builder: (BuildContext context) => Scaffold(
                               body: Builder(
-                                builder: (BuildContext context) =>
-                                    SingleChildScrollView(
+                                builder: (BuildContext context) => SingleChildScrollView(
                                   primary: true,
                                   child: Container(),
                                 ),
@@ -206,28 +196,23 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Cupertino Modal inside modal'),
                       onTap: () => Navigator.of(context).push(
                         CupertinoSheetRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ModalInsideModal(),
+                          builder: (BuildContext context) => const ModalInsideModal(),
                         ),
                       ),
                     ),
                     ListTile(
-                      title:
-                          const Text('Cupertino Modal with inside navigation'),
+                      title: const Text('Cupertino Modal with inside navigation'),
                       onTap: () => Navigator.of(context).push(
                         CupertinoSheetRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ModalWithNavigator(),
+                          builder: (BuildContext context) => const ModalWithNavigator(),
                         ),
                       ),
                     ),
                     ListTile(
-                      title: const Text(
-                          'Cupertino Navigator + Scroll + WillPopScope'),
+                      title: const Text('Cupertino Navigator + Scroll + WillPopScope'),
                       onTap: () => Navigator.of(context).push(
                         CupertinoSheetRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ComplexModal(),
+                          builder: (BuildContext context) => const ComplexModal(),
                         ),
                       ),
                     ),
@@ -235,8 +220,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Modal with WillPopScope'),
                       onTap: () => Navigator.of(context).push(
                         CupertinoSheetRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ModalWillScope(),
+                          builder: (BuildContext context) => const ModalWillScope(),
                         ),
                       ),
                     ),
@@ -245,8 +229,7 @@ class RouteExamplePage extends StatelessWidget {
                       onTap: () => Navigator.of(context).push(
                         CupertinoSheetRoute<void>(
                           fit: SheetFit.loose,
-                          builder: (BuildContext context) =>
-                              const ModalFitWillScope(),
+                          builder: (BuildContext context) => const ModalFitWillScope(),
                         ),
                       ),
                     ),
@@ -264,8 +247,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Modal with PageView'),
                       onTap: () => Navigator.of(context).push(
                         CupertinoSheetRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ModalWithPageView(),
+                          builder: (BuildContext context) => const ModalWithPageView(),
                         ),
                       ),
                     ),
@@ -281,8 +263,7 @@ class RouteExamplePage extends StatelessWidget {
                       title: const Text('Dialog Modal for tablet - Expanded'),
                       onTap: () => Navigator.of(context).push(
                         DialogSheetRoute<void>(
-                          builder: (BuildContext context) =>
-                              const ModalInsideModal(),
+                          builder: (BuildContext context) => const ModalInsideModal(),
                         ),
                       ),
                     ),

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:url_launcher/url_launcher_string.dart';
 
 class WebFrame extends StatelessWidget {
@@ -49,16 +49,13 @@ class WebFrame extends StatelessWidget {
                                 right: 0,
                                 height: 44,
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Padding(
-                                        padding:
-                                            EdgeInsets.only(left: 30, top: 4),
+                                        padding: EdgeInsets.only(left: 30, top: 4),
                                         child: Text(
                                           '${date.hour}:${date.minute}',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold),
+                                          style: TextStyle(fontWeight: FontWeight.bold),
                                         )),
                                     Padding(
                                         padding: EdgeInsets.only(right: 18),
@@ -71,9 +68,7 @@ class WebFrame extends StatelessWidget {
                                             SizedBox(width: 4),
                                             Icon(Icons.wifi, size: 16),
                                             SizedBox(width: 4),
-                                            Icon(
-                                                CupertinoIcons.battery_charging,
-                                                size: 20)
+                                            Icon(CupertinoIcons.battery_charging, size: 20)
                                           ],
                                         ))
                                   ],
@@ -85,9 +80,8 @@ class WebFrame extends StatelessWidget {
                                   margin: EdgeInsets.only(bottom: 8),
                                   height: 4,
                                   width: 140,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(4)),
+                                  decoration:
+                                      BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(4)),
                                 ),
                               )
                             ],
@@ -96,12 +90,9 @@ class WebFrame extends StatelessWidget {
 
                     return Container(
                       child: ClipRRect(
-                          clipBehavior: Clip.antiAlias,
-                          borderRadius: BorderRadius.circular(38.5),
-                          child: device),
+                          clipBehavior: Clip.antiAlias, borderRadius: BorderRadius.circular(38.5), child: device),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(color: Colors.black, width: 12)),
+                          borderRadius: BorderRadius.circular(50), border: Border.all(color: Colors.black, width: 12)),
                     );
                   }),
                 ),
@@ -133,17 +124,13 @@ class WebFrame extends StatelessWidget {
                               Row(
                                 children: <Widget>[
                                   InkWell(
-                                    onTap: () => launchUrlString(
-                                        'https://pub.dev/packages/modal_bottom_sheet'),
-                                    child: Image.asset('assets/flutter.png',
-                                        height: 60),
+                                    onTap: () => launchUrlString('https://pub.dev/packages/modal_bottom_sheet'),
+                                    child: Image.asset('assets/flutter.png', height: 60),
                                   ),
                                   Spacer(),
                                   InkWell(
-                                    onTap: () => launchUrlString(
-                                        'https://github.com/jamesblasco/modal_bottom_sheet'),
-                                    child: Image.asset('assets/github.png',
-                                        height: 60),
+                                    onTap: () => launchUrlString('https://github.com/jamesblasco/modal_bottom_sheet'),
+                                    child: Image.asset('assets/github.png', height: 60),
                                   ),
                                 ],
                               )

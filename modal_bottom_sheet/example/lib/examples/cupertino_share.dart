@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class CupertinoSharePage extends StatelessWidget {
@@ -115,8 +115,7 @@ class PhotoShareBottomSheet extends StatelessWidget {
                   child: Container(
                     height: 318,
                     child: ListView(
-                      padding: EdgeInsets.all(12).copyWith(
-                          right: MediaQuery.of(context).size.width / 2 - 100),
+                      padding: EdgeInsets.all(12).copyWith(right: MediaQuery.of(context).size.width / 2 - 100),
                       reverse: true,
                       scrollDirection: Axis.horizontal,
                       physics: PageScrollPhysics(),
@@ -178,12 +177,9 @@ class PhotoShareBottomSheet extends StatelessWidget {
                                     height: 60,
                                     width: 60,
                                     decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(app.imageUrl!),
-                                            fit: BoxFit.cover),
+                                        image: DecorationImage(image: AssetImage(app.imageUrl!), fit: BoxFit.cover),
                                         color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(15)),
+                                        borderRadius: BorderRadius.circular(15)),
                                   ),
                                 ),
                                 shape: RoundedRectangleBorder(
@@ -214,18 +210,14 @@ class PhotoShareBottomSheet extends StatelessWidget {
                     List<Widget>.from(
                       actions.map(
                         (action) => Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 16),
+                          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                           child: Text(
                             action.title,
-                            style:
-                                CupertinoTheme.of(context).textTheme.textStyle,
+                            style: CupertinoTheme.of(context).textTheme.textStyle,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: CupertinoColors
-                                .tertiarySystemGroupedBackground
-                                .resolveFrom(context),
+                            color: CupertinoColors.tertiarySystemGroupedBackground.resolveFrom(context),
                           ),
                         ),
                       ),
@@ -246,31 +238,19 @@ class PhotoShareBottomSheet extends StatelessWidget {
                     List<Widget>.from(
                       actions1.map(
                         (action) => Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 16),
+                          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                           child: Text(
                             action.title,
-                            style:
-                                CupertinoTheme.of(context).textTheme.textStyle,
+                            style: CupertinoTheme.of(context).textTheme.textStyle,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
-                              topLeft: action == actions1.first
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
-                              topRight: action == actions1.first
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
-                              bottomLeft: action == actions1.last
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
-                              bottomRight: action == actions1.last
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
+                              topLeft: action == actions1.first ? Radius.circular(8) : Radius.zero,
+                              topRight: action == actions1.first ? Radius.circular(8) : Radius.zero,
+                              bottomLeft: action == actions1.last ? Radius.circular(8) : Radius.zero,
+                              bottomRight: action == actions1.last ? Radius.circular(8) : Radius.zero,
                             ),
-                            color: CupertinoColors
-                                .tertiarySystemGroupedBackground
-                                .resolveFrom(context),
+                            color: CupertinoColors.tertiarySystemGroupedBackground.resolveFrom(context),
                           ),
                         ),
                       ),
@@ -291,31 +271,19 @@ class PhotoShareBottomSheet extends StatelessWidget {
                     List<Widget>.from(
                       actions2.map(
                         (action) => Container(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 16, horizontal: 16),
+                          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                           child: Text(
                             action.title,
-                            style:
-                                CupertinoTheme.of(context).textTheme.textStyle,
+                            style: CupertinoTheme.of(context).textTheme.textStyle,
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
-                              topLeft: action == actions2.first
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
-                              topRight: action == actions2.first
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
-                              bottomLeft: action == actions2.last
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
-                              bottomRight: action == actions2.last
-                                  ? Radius.circular(8)
-                                  : Radius.zero,
+                              topLeft: action == actions2.first ? Radius.circular(8) : Radius.zero,
+                              topRight: action == actions2.first ? Radius.circular(8) : Radius.zero,
+                              bottomLeft: action == actions2.last ? Radius.circular(8) : Radius.zero,
+                              bottomRight: action == actions2.last ? Radius.circular(8) : Radius.zero,
                             ),
-                            color: CupertinoColors
-                                .tertiarySystemGroupedBackground
-                                .resolveFrom(context),
+                            color: CupertinoColors.tertiarySystemGroupedBackground.resolveFrom(context),
                           ),
                         ),
                       ),
@@ -396,9 +364,7 @@ class PhotoShareBottomSheet extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
           child: Container(
-            color: CupertinoTheme.of(context)
-                .scaffoldBackgroundColor
-                .withOpacity(0.8),
+            color: CupertinoTheme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
             child: Column(
               children: <Widget>[
                 Expanded(
@@ -423,10 +389,8 @@ class PhotoShareBottomSheet extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               '1 Photo selected',
-                              style: CupertinoTheme.of(context)
-                                  .textTheme
-                                  .textStyle
-                                  .copyWith(fontWeight: FontWeight.w600),
+                              style:
+                                  CupertinoTheme.of(context).textTheme.textStyle.copyWith(fontWeight: FontWeight.w600),
                             ),
                             SizedBox(height: 4),
                             Row(
@@ -435,10 +399,7 @@ class PhotoShareBottomSheet extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   'Options',
-                                  style: CupertinoTheme.of(context)
-                                      .textTheme
-                                      .actionTextStyle
-                                      .copyWith(
+                                  style: CupertinoTheme.of(context).textTheme.actionTextStyle.copyWith(
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -447,8 +408,7 @@ class PhotoShareBottomSheet extends StatelessWidget {
                                 Icon(
                                   CupertinoIcons.right_chevron,
                                   size: 14,
-                                  color:
-                                      CupertinoTheme.of(context).primaryColor,
+                                  color: CupertinoTheme.of(context).primaryColor,
                                 )
                               ],
                             ),
@@ -463,15 +423,13 @@ class PhotoShareBottomSheet extends StatelessWidget {
                             margin: EdgeInsets.only(top: 14),
                             padding: EdgeInsets.all(4),
                             decoration: BoxDecoration(
-                              color: CupertinoColors.secondarySystemFill
-                                  .resolveFrom(context),
+                              color: CupertinoColors.secondarySystemFill.resolveFrom(context),
                               shape: BoxShape.circle,
                             ),
                             child: Icon(
                               Icons.close,
                               size: 24,
-                              color: CupertinoColors.systemFill
-                                  .resolveFrom(context),
+                              color: CupertinoColors.systemFill.resolveFrom(context),
                             ),
                           ),
                         ),
@@ -502,10 +460,8 @@ final people = [
   Item('Jaime Blasco', 'assets/jaimeblasco.jpeg'),
   Item('Mya Johnston', 'assets/person1.jpeg'),
   // https://images.unsplash.com/photo-1520813792240-56fc4a3765a7'
-  Item('Maxime Nicholls',
-      'assets/person4.jpeg'), //https://images.unsplash.com/photo-1568707043650-eb03f2536825'
-  Item('Susanna Thorne',
-      'assets/person2.jpeg'), //https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0
+  Item('Maxime Nicholls', 'assets/person4.jpeg'), //https://images.unsplash.com/photo-1568707043650-eb03f2536825'
+  Item('Susanna Thorne', 'assets/person2.jpeg'), //https://images.unsplash.com/photo-1520719627573-5e2c1a6610f0
   Item('Jarod Aguilar', 'assets/person3.jpeg')
   //https://images.unsplash.com/photo-1547106634-56dcd53ae883
 ];
@@ -539,9 +495,8 @@ final actions2 = [
 ];
 
 extension ListUtils<T> on List<T> {
-  List<T> addItemInBetween<A extends T>(A item) => this.length == 0
-      ? this
-      : (this.fold([], (r, element) => [...r, element, item])..removeLast());
+  List<T> addItemInBetween<A extends T>(A item) =>
+      this.length == 0 ? this : (this.fold([], (r, element) => [...r, element, item])..removeLast());
 }
 
 class SimpleSliverDelegate extends SliverPersistentHeaderDelegate {
@@ -554,8 +509,7 @@ class SimpleSliverDelegate extends SliverPersistentHeaderDelegate {
   });
 
   @override
-  Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     return SizedBox(height: height, child: child);
   }
 

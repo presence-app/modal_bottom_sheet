@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class SimpleModal extends StatelessWidget {
-  const SimpleModal({Key? key, required this.scrollController})
-      : super(key: key);
+  const SimpleModal({Key? key, required this.scrollController}) : super(key: key);
   final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context) {
     return Material(
         child: CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-          leading: Container(), middle: const Text('Modal Page')),
+      navigationBar: CupertinoNavigationBar(leading: Container(), middle: const Text('Modal Page')),
       child: const Center(),
     ));
   }

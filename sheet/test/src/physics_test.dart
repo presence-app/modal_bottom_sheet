@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -27,8 +27,7 @@ void main() {
 
       test('should not reload', () async {
         expect(
-          const NeverDraggableSheetPhysics()
-              .shouldReload(const NeverDraggableSheetPhysics()),
+          const NeverDraggableSheetPhysics().shouldReload(const NeverDraggableSheetPhysics()),
           isFalse,
         );
       });
@@ -49,8 +48,7 @@ void main() {
         await tester.pumpAndSettle();
         expect(tester.getRect(find.byType(Container)), kScreenRect);
         await tester.drag(find.byType(Container), const Offset(0, 100));
-        expect(tester.getRect(find.byType(Container)),
-            kScreenRect.translate(0, 100));
+        expect(tester.getRect(find.byType(Container)), kScreenRect.translate(0, 100));
       });
     });
     group('BouncingSheetPhysics', () {
@@ -92,11 +90,9 @@ void main() {
           axisDirection: AxisDirection.down,
         );
 
-        final double lessOverscrollApplied = physicsUnderTest
-            .applyPhysicsToUserOffset(lessOverscrolledPosition, 10.0);
+        final double lessOverscrollApplied = physicsUnderTest.applyPhysicsToUserOffset(lessOverscrolledPosition, 10.0);
 
-        final double moreOverscrollApplied = physicsUnderTest
-            .applyPhysicsToUserOffset(moreOverscrolledPosition, 10.0);
+        final double moreOverscrollApplied = physicsUnderTest.applyPhysicsToUserOffset(moreOverscrolledPosition, 10.0);
 
         expect(lessOverscrollApplied, greaterThan(0.1));
         expect(lessOverscrollApplied, lessThan(20.0));
@@ -120,8 +116,7 @@ void main() {
           axisDirection: AxisDirection.down,
         );
 
-        final double easingApplied = physicsUnderTest.applyPhysicsToUserOffset(
-            overscrolledPosition, -10.0);
+        final double easingApplied = physicsUnderTest.applyPhysicsToUserOffset(overscrolledPosition, -10.0);
 
         expect(easingApplied, lessThan(-0.1));
         expect(easingApplied, greaterThan(-10.0));
@@ -155,10 +150,8 @@ void main() {
           axisDirection: AxisDirection.down,
         );
 
-        final double easingApplied = physicsUnderTest.applyPhysicsToUserOffset(
-            overscrolledPosition, -10.0);
-        final double tensioningApplied = physicsUnderTest
-            .applyPhysicsToUserOffset(overscrolledPosition, 10.0);
+        final double easingApplied = physicsUnderTest.applyPhysicsToUserOffset(overscrolledPosition, -10.0);
+        final double tensioningApplied = physicsUnderTest.applyPhysicsToUserOffset(overscrolledPosition, 10.0);
 
         expect(easingApplied.abs(), greaterThan(tensioningApplied.abs()));
       });
@@ -180,11 +173,11 @@ void main() {
           axisDirection: AxisDirection.down,
         );
 
-        final double smallListOverscrollApplied = physicsUnderTest
-            .applyPhysicsToUserOffset(smallListOverscrolledPosition, 10.0);
+        final double smallListOverscrollApplied =
+            physicsUnderTest.applyPhysicsToUserOffset(smallListOverscrolledPosition, 10.0);
 
-        final double bigListOverscrollApplied = physicsUnderTest
-            .applyPhysicsToUserOffset(bigListOverscrolledPosition, 10.0);
+        final double bigListOverscrollApplied =
+            physicsUnderTest.applyPhysicsToUserOffset(bigListOverscrolledPosition, 10.0);
 
         expect(smallListOverscrollApplied, equals(bigListOverscrollApplied));
 
@@ -211,8 +204,7 @@ void main() {
 
         group('when overflowViewport', () {
           test('does not appyBoundaryConditions top edge', () {
-            const BouncingSheetPhysics physicsUnderTest =
-                BouncingSheetPhysics(overflowViewport: true);
+            const BouncingSheetPhysics physicsUnderTest = BouncingSheetPhysics(overflowViewport: true);
 
             final ScrollMetrics scrollMetrics = FixedScrollMetrics(
               minScrollExtent: 0.0,
@@ -231,8 +223,7 @@ void main() {
             );
           });
           test('does appyBoundaryConditions bottom edge', () {
-            const BouncingSheetPhysics physicsUnderTest =
-                BouncingSheetPhysics(overflowViewport: true);
+            const BouncingSheetPhysics physicsUnderTest = BouncingSheetPhysics(overflowViewport: true);
 
             final ScrollMetrics scrollMetrics = FixedScrollMetrics(
               minScrollExtent: 0.0,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/src/widgets/resizable_sheet.dart';
@@ -7,8 +7,7 @@ import '../../screen_size_test.dart';
 
 void main() {
   group('ResizableSheetChild', () {
-    testWidgets('if resizable is false, constraints are ignored',
-        (WidgetTester tester) async {
+    testWidgets('if resizable is false, constraints are ignored', (WidgetTester tester) async {
       final ViewportOffset offset = ViewportOffset.fixed(100);
 
       await tester.pumpWidget(
@@ -22,8 +21,7 @@ void main() {
       expect(tester.getSize(find.byType(Container)), kScreenSize);
     });
 
-    testWidgets('if resizable is true, child height depends on pixels offset',
-        (WidgetTester tester) async {
+    testWidgets('if resizable is true, child height depends on pixels offset', (WidgetTester tester) async {
       final ViewportOffset offset = ViewportOffset.fixed(100);
 
       await tester.pumpWidget(
@@ -69,8 +67,7 @@ void main() {
       late StateSetter setState;
       ViewportOffset offset = ViewportOffset.fixed(100);
       await tester.pumpWidget(
-        StatefulBuilder(
-            builder: (BuildContext context, StateSetter stateSetter) {
+        StatefulBuilder(builder: (BuildContext context, StateSetter stateSetter) {
           setState = stateSetter;
           return ResizableSheetChild(
             offset: offset,
@@ -80,8 +77,7 @@ void main() {
         }),
       );
       final RenderResizableSheetChildBox renderObject =
-          tester.renderObject<RenderResizableSheetChildBox>(
-              find.byType(ResizableSheetChild));
+          tester.renderObject<RenderResizableSheetChildBox>(find.byType(ResizableSheetChild));
 
       expect(renderObject.offset, offset);
       expect(tester.getSize(find.byType(Container)).height, offset.pixels);
@@ -99,8 +95,7 @@ void main() {
       final ViewportOffset offset = ViewportOffset.fixed(100);
       bool resizable = true;
       await tester.pumpWidget(
-        StatefulBuilder(
-            builder: (BuildContext context, StateSetter stateSetter) {
+        StatefulBuilder(builder: (BuildContext context, StateSetter stateSetter) {
           setState = stateSetter;
           return ResizableSheetChild(
             offset: offset,
@@ -110,8 +105,7 @@ void main() {
         }),
       );
       final RenderResizableSheetChildBox renderObject =
-          tester.renderObject<RenderResizableSheetChildBox>(
-              find.byType(ResizableSheetChild));
+          tester.renderObject<RenderResizableSheetChildBox>(find.byType(ResizableSheetChild));
 
       expect(renderObject.resizable, resizable);
       expect(tester.getSize(find.byType(Container)).height, offset.pixels);
@@ -129,8 +123,7 @@ void main() {
       final ViewportOffset offset = ViewportOffset.fixed(100);
       double minExtent = 200;
       await tester.pumpWidget(
-        StatefulBuilder(
-            builder: (BuildContext context, StateSetter stateSetter) {
+        StatefulBuilder(builder: (BuildContext context, StateSetter stateSetter) {
           setState = stateSetter;
           return ResizableSheetChild(
             offset: offset,
@@ -141,8 +134,7 @@ void main() {
         }),
       );
       final RenderResizableSheetChildBox renderObject =
-          tester.renderObject<RenderResizableSheetChildBox>(
-              find.byType(ResizableSheetChild));
+          tester.renderObject<RenderResizableSheetChildBox>(find.byType(ResizableSheetChild));
 
       expect(renderObject.minExtent, minExtent);
       expect(tester.getSize(find.byType(Container)).height, 200);

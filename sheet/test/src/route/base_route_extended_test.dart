@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/route.dart';
 
@@ -55,8 +55,7 @@ void main() {
       expect(find.text('child'), findsOneWidget);
     });
 
-    testWidgets('route is a MaterialExtendedPageRoute',
-        (WidgetTester tester) async {
+    testWidgets('route is a MaterialExtendedPageRoute', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
         builder: (context, child) {
           return Navigator(
@@ -66,8 +65,7 @@ void main() {
         },
       ));
       expect(
-        MaterialExtendedPage(child: Text('child'))
-            .createRoute(tester.contextForRootNavigator),
+        MaterialExtendedPage(child: Text('child')).createRoute(tester.contextForRootNavigator),
         isA<MaterialExtendedPageRoute>(),
       );
     });
@@ -156,8 +154,7 @@ void main() {
       expect(find.text('child'), findsOneWidget);
     });
 
-    testWidgets('route is a CupertinoExtendedPageRoute',
-        (WidgetTester tester) async {
+    testWidgets('route is a CupertinoExtendedPageRoute', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
         builder: (context, child) {
           return Navigator(
@@ -167,8 +164,7 @@ void main() {
         },
       ));
       expect(
-        CupertinoExtendedPage(child: Text('child'))
-            .createRoute(tester.contextForRootNavigator),
+        CupertinoExtendedPage(child: Text('child')).createRoute(tester.contextForRootNavigator),
         isA<CupertinoExtendedPageRoute>(),
       );
     });

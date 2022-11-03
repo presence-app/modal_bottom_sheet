@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/route.dart';
 import 'package:sheet/sheet.dart';
 
 class DialogSheet extends StatelessWidget {
-  const DialogSheet({Key? key, required this.child, this.backgroundColor})
-      : super(key: key);
+  const DialogSheet({Key? key, required this.child, this.backgroundColor}) : super(key: key);
   final Widget child;
   final Color? backgroundColor;
 
@@ -12,8 +11,7 @@ class DialogSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQuery = MediaQuery.of(context);
     return MediaQuery(
-      data: mediaQuery.copyWith(
-          padding: mediaQuery.padding + const EdgeInsets.only(top: 40)),
+      data: mediaQuery.copyWith(padding: mediaQuery.padding + const EdgeInsets.only(top: 40)),
       child: SafeArea(
         bottom: false,
         left: false,

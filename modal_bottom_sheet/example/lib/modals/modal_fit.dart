@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class ModalFit extends StatelessWidget {
   const ModalFit({Key? key}) : super(key: key);

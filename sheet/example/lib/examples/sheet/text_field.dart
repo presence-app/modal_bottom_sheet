@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 import 'package:sheet/sheet.dart';
 
@@ -7,8 +7,7 @@ class TextFieldSheet extends StatefulWidget {
   _TextFieldSheetState createState() => _TextFieldSheetState();
 }
 
-class _TextFieldSheetState extends State<TextFieldSheet>
-    with TickerProviderStateMixin {
+class _TextFieldSheetState extends State<TextFieldSheet> with TickerProviderStateMixin {
   late SheetController controller = SheetController();
 
   @override

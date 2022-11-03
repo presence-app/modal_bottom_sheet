@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 import 'delegated_transitions_route.dart';
 import 'sheet_route.dart';
@@ -36,11 +36,7 @@ class MaterialExtendedPage<T> extends Page<T> {
     String? name,
     Object? arguments,
     String? restorationId,
-  }) : super(
-            key: key,
-            name: name,
-            arguments: arguments,
-            restorationId: restorationId);
+  }) : super(key: key, name: name, arguments: arguments, restorationId: restorationId);
 
   /// The content to be shown in the [Route] created by this page.
   final Widget child;
@@ -114,11 +110,7 @@ class CupertinoExtendedPage<T> extends Page<T> {
     String? name,
     Object? arguments,
     String? restorationId,
-  }) : super(
-            key: key,
-            name: name,
-            arguments: arguments,
-            restorationId: restorationId);
+  }) : super(key: key, name: name, arguments: arguments, restorationId: restorationId);
 
   /// The content to be shown in the [Route] created by this page.
   final Widget child;

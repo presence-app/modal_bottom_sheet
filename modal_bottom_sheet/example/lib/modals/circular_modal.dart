@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter/services.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
@@ -9,11 +9,7 @@ class AvatarBottomSheet extends StatelessWidget {
   final Animation<double> animation;
   final SystemUiOverlayStyle? overlayStyle;
 
-  const AvatarBottomSheet(
-      {Key? key,
-      required this.child,
-      required this.animation,
-      this.overlayStyle})
+  const AvatarBottomSheet({Key? key, required this.child, required this.animation, this.overlayStyle})
       : super(key: key);
 
   @override
@@ -31,8 +27,7 @@ class AvatarBottomSheet extends StatelessWidget {
               animation: animation,
               builder: (context, child) => Transform.translate(
                   offset: Offset(0, (1 - animation.value) * 100),
-                  child: Opacity(
-                      child: child, opacity: max(0, animation.value * 2 - 1))),
+                  child: Opacity(child: child, opacity: max(0, animation.value * 2 - 1))),
               child: Row(
                 children: <Widget>[
                   SizedBox(width: 20),
@@ -53,8 +48,7 @@ class AvatarBottomSheet extends StatelessWidget {
             flex: 1,
             fit: FlexFit.loose,
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
               child: Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).scaffoldBackgroundColor,
@@ -67,8 +61,7 @@ class AvatarBottomSheet extends StatelessWidget {
                   ],
                 ),
                 width: double.infinity,
-                child: MediaQuery.removePadding(
-                    context: context, removeTop: true, child: child),
+                child: MediaQuery.removePadding(context: context, removeTop: true, child: child),
               ),
             ),
           ),
@@ -97,8 +90,7 @@ Future<T?> showAvatarModalBottomSheet<T>({
 }) async {
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
-  final result = await Navigator.of(context, rootNavigator: useRootNavigator)
-      .push(ModalBottomSheetRoute<T>(
+  final result = await Navigator.of(context, rootNavigator: useRootNavigator).push(ModalBottomSheetRoute<T>(
     builder: builder,
     containerBuilder: (_, animation, child) => AvatarBottomSheet(
       child: child,

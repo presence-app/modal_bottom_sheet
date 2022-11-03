@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -42,8 +42,7 @@ void main() {
       expect(tester.getSheetTop(), equals(0));
     });
 
-    testWidgets('bigget than screen defaults to full screen',
-        (WidgetTester tester) async {
+    testWidgets('bigget than screen defaults to full screen', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           initialExtent: 800,

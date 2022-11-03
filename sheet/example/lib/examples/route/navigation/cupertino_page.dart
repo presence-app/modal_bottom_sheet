@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/route.dart';
 
 class Book {
@@ -28,8 +28,7 @@ class _CupertinoBooksAppState extends State<CupertinoBooksApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme:
-          brightness == Brightness.light ? ThemeData.light() : ThemeData.dark(),
+      theme: brightness == Brightness.light ? ThemeData.light() : ThemeData.dark(),
       title: 'Books App',
       builder: (BuildContext context, Widget? child) {
         return CupertinoTheme(
@@ -100,14 +99,10 @@ class BooksListScreen extends StatelessWidget {
         }),
         middle: const Text('Book'),
         trailing: IconButton(
-          icon: Icon(brightness == Brightness.light
-              ? Icons.nightlight_round
-              : Icons.wb_sunny),
+          icon: Icon(brightness == Brightness.light ? Icons.nightlight_round : Icons.wb_sunny),
           onPressed: () {
             onBrigthnessChanged(
-              brightness == Brightness.light
-                  ? Brightness.dark
-                  : Brightness.light,
+              brightness == Brightness.light ? Brightness.dark : Brightness.light,
             );
           },
         ),
@@ -153,8 +148,7 @@ class BookDetailsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+          Navigator.of(context).push(MaterialPageRoute<void>(builder: (BuildContext context) {
             return Scaffold(
               appBar: AppBar(
                 title: const Text('Invalid'),

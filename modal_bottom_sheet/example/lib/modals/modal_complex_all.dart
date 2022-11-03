@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class ComplexModal extends StatelessWidget {
@@ -38,8 +38,7 @@ class ComplexModal extends StatelessWidget {
           onGenerateRoute: (_) => MaterialPageRoute(
             builder: (context) => Builder(
               builder: (context) => CupertinoPageScaffold(
-                navigationBar: CupertinoNavigationBar(
-                    leading: Container(), middle: Text('Modal Page')),
+                navigationBar: CupertinoNavigationBar(leading: Container(), middle: Text('Modal Page')),
                 child: SafeArea(
                   bottom: false,
                   child: ListView(
@@ -53,16 +52,14 @@ class ComplexModal extends StatelessWidget {
                                 title: Text('Item'),
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) =>
-                                          CupertinoPageScaffold(
-                                              navigationBar:
-                                                  CupertinoNavigationBar(
-                                                middle: Text('New Page'),
-                                              ),
-                                              child: Stack(
-                                                fit: StackFit.expand,
-                                                children: <Widget>[],
-                                              ))));
+                                      builder: (context) => CupertinoPageScaffold(
+                                          navigationBar: CupertinoNavigationBar(
+                                            middle: Text('New Page'),
+                                          ),
+                                          child: Stack(
+                                            fit: StackFit.expand,
+                                            children: <Widget>[],
+                                          ))));
                                 },
                               )),
                     ).toList(),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -31,8 +31,7 @@ void main() {
       expect(tester.getSheetTop(), equals(kScreenRect.bottom));
     });
 
-    testWidgets('moves maximun the available viewport',
-        (WidgetTester tester) async {
+    testWidgets('moves maximun the available viewport', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           initialExtent: 400,
@@ -53,8 +52,7 @@ void main() {
       expect(tester.getSheetTop(), equals(0));
     });
 
-    testWidgets('moves down no more than the bottom of the screen',
-        (WidgetTester tester) async {
+    testWidgets('moves down no more than the bottom of the screen', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           initialExtent: 400,
@@ -73,8 +71,7 @@ void main() {
       expect(tester.getSheetTop(), equals(kScreenRect.bottom));
     });
 
-    testWidgets('does not move more than max extent',
-        (WidgetTester tester) async {
+    testWidgets('does not move more than max extent', (WidgetTester tester) async {
       const double height = 500;
       await tester.pumpApp(
         Sheet(
@@ -96,8 +93,7 @@ void main() {
       expect(tester.getSheetTop(), equals(kScreenRect.bottom - height));
     });
 
-    testWidgets('does not move less than min extent',
-        (WidgetTester tester) async {
+    testWidgets('does not move less than min extent', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           initialExtent: 400,

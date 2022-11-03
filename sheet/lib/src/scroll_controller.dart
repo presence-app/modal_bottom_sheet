@@ -93,12 +93,10 @@ class SheetPrimaryScrollPosition extends ScrollPositionWithSingleContext {
     final bool canDragForward = delta >= 0 && pixels <= minScrollExtent;
 
     // Can drag up if sheet is not yet on top and list is already on top
-    final bool canDragBackwards = delta < 0 &&
-        sheetPosition.pixels < sheetPosition.maxScrollExtent &&
-        pixels <= minScrollExtent;
+    final bool canDragBackwards =
+        delta < 0 && sheetPosition.pixels < sheetPosition.maxScrollExtent && pixels <= minScrollExtent;
 
-    return sheetPosition.physics.shouldAcceptUserOffset(sheetPosition) &&
-        (canDragForward || canDragBackwards);
+    return sheetPosition.physics.shouldAcceptUserOffset(sheetPosition) && (canDragForward || canDragBackwards);
   }
 
   @override
@@ -107,12 +105,10 @@ class SheetPrimaryScrollPosition extends ScrollPositionWithSingleContext {
       return;
     }
     if (sheetShouldSheetAcceptUserOffser(delta)) {
-      final double pixels = sheetPosition.pixels -
-          sheetPosition.physics.applyPhysicsToUserOffset(sheetPosition, delta);
+      final double pixels = sheetPosition.pixels - sheetPosition.physics.applyPhysicsToUserOffset(sheetPosition, delta);
 
       sheetPosition.forcePixels(
-        pixels.clamp(
-            sheetPosition.minScrollExtent, sheetPosition.maxScrollExtent),
+        pixels.clamp(sheetPosition.minScrollExtent, sheetPosition.maxScrollExtent),
       );
       sheetPosition.beginActivity(_SheetScrollActivity(sheetPosition));
       return;
@@ -127,19 +123,19 @@ class SheetPrimaryScrollPosition extends ScrollPositionWithSingleContext {
     if (sheetPosition.preventingDrag) {
       beginActivity(
         BallisticScrollActivity(
-          this,
-          ScrollSpringSimulation(
-            SpringDescription.withDampingRatio(
-              mass: 0.5,
-              stiffness: 100.0,
-              ratio: 1.1,
+            this,
+            ScrollSpringSimulation(
+              SpringDescription.withDampingRatio(
+                mass: 0.5,
+                stiffness: 100.0,
+                ratio: 1.1,
+              ),
+              pixels,
+              0,
+              velocity,
             ),
-            pixels,
-            0,
-            velocity,
-          ),
-          context.vsync,
-        ),
+            context.vsync,
+            activity?.shouldIgnorePointer ?? true),
       );
 
       return;
@@ -158,27 +154,26 @@ class SheetPrimaryScrollPosition extends ScrollPositionWithSingleContext {
     if (!sheetDragging) {
       super.goBallistic(velocity);
       return;
-    } else if (velocity > 0.0 &&
-            sheetPosition.pixels >= sheetPosition.maxScrollExtent ||
+    } else if (velocity > 0.0 && sheetPosition.pixels >= sheetPosition.maxScrollExtent ||
         (velocity < 0.0 && pixels > 0)) {
       //   super.goBallistic(velocity);
       return;
     } else if (outOfRange) {
       beginActivity(
         BallisticScrollActivity(
-          this,
-          ScrollSpringSimulation(
-            SpringDescription.withDampingRatio(
-              mass: 0.5,
-              stiffness: 100.0,
-              ratio: 1.1,
+            this,
+            ScrollSpringSimulation(
+              SpringDescription.withDampingRatio(
+                mass: 0.5,
+                stiffness: 100.0,
+                ratio: 1.1,
+              ),
+              pixels,
+              0,
+              velocity,
             ),
-            pixels,
-            0,
-            velocity,
-          ),
-          context.vsync,
-        ),
+            context.vsync,
+            activity?.shouldIgnorePointer ?? true),
       );
       return;
     }

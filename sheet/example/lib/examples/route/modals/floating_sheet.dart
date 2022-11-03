@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/route.dart';
 import 'package:sheet/sheet.dart';
 
 class FloatingModal extends StatelessWidget {
-  const FloatingModal({Key? key, required this.child, this.backgroundColor})
-      : super(key: key);
+  const FloatingModal({Key? key, required this.child, this.backgroundColor}) : super(key: key);
   final Widget child;
   final Color? backgroundColor;
 

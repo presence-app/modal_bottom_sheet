@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class ModalWithNavigator extends StatelessWidget {
@@ -12,8 +12,7 @@ class ModalWithNavigator extends StatelessWidget {
       onGenerateRoute: (_) => MaterialPageRoute(
         builder: (context2) => Builder(
           builder: (context) => CupertinoPageScaffold(
-            navigationBar: CupertinoNavigationBar(
-                leading: Container(), middle: Text('Modal Page')),
+            navigationBar: CupertinoNavigationBar(leading: Container(), middle: Text('Modal Page')),
             child: SafeArea(
               bottom: false,
               child: ListView(
@@ -36,8 +35,7 @@ class ModalWithNavigator extends StatelessWidget {
                                       fit: StackFit.expand,
                                       children: <Widget>[
                                         MaterialButton(
-                                          onPressed: () =>
-                                              Navigator.of(rootContext).pop(),
+                                          onPressed: () => Navigator.of(rootContext).pop(),
                                           child: Text('touch here'),
                                         )
                                       ],
