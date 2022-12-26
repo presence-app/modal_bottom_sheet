@@ -1,6 +1,6 @@
 import 'package:example/route_example_page.dart';
 import 'package:example/sheet_example_page.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/route.dart';
 
 void main() => runApp(MyApp());
@@ -30,8 +30,7 @@ class BottomNavigationScaffold extends StatefulWidget {
   const BottomNavigationScaffold({super.key});
 
   @override
-  State<BottomNavigationScaffold> createState() =>
-      _BottomNavigationScaffoldState();
+  State<BottomNavigationScaffold> createState() => _BottomNavigationScaffoldState();
 }
 
 class _BottomNavigationScaffoldState extends State<BottomNavigationScaffold> {

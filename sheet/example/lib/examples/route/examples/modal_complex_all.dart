@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class ComplexModal extends StatelessWidget {
   const ComplexModal({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final ScrollController primaryScrollController =
-        PrimaryScrollController.of(context)!;
+    final ScrollController primaryScrollController = PrimaryScrollController.of(context)!;
     return Material(
       child: WillPopScope(
         onWillPop: () async {
@@ -39,8 +38,7 @@ class ComplexModal extends StatelessWidget {
           onGenerateRoute: (_) => MaterialPageRoute<void>(
             builder: (BuildContext context) => Builder(
               builder: (BuildContext context) => CupertinoPageScaffold(
-                navigationBar: CupertinoNavigationBar(
-                    leading: Container(), middle: const Text('Modal Page')),
+                navigationBar: CupertinoNavigationBar(leading: Container(), middle: const Text('Modal Page')),
                 child: SafeArea(
                   bottom: false,
                   child: ListView(
@@ -55,8 +53,7 @@ class ComplexModal extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute<void>(
-                                builder: (BuildContext context) =>
-                                    CupertinoPageScaffold(
+                                builder: (BuildContext context) => CupertinoPageScaffold(
                                   navigationBar: const CupertinoNavigationBar(
                                     middle: Text('New Page'),
                                   ),

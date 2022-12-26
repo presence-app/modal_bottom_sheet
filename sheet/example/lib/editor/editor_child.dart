@@ -1,5 +1,5 @@
 import 'package:example/editor/editor_controller.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:provider/provider.dart';
 
 enum SheetChildType { empty, column, scroll }
@@ -72,10 +72,8 @@ class ListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int count = context.select(
-            (SheetConfigurationController? controller) =>
-                controller?.value.childrenCount) ??
-        100;
+    final int count =
+        context.select((SheetConfigurationController? controller) => controller?.value.childrenCount) ?? 100;
     return ListView(
       shrinkWrap: true,
       primary: true,

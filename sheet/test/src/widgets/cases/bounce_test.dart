@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -25,8 +25,7 @@ void main() {
       expect(tester.getSheetHeight(), greaterThan(200));
     });
 
-    testWidgets('fit: with max extent: can bounce top',
-        (WidgetTester tester) async {
+    testWidgets('fit: with max extent: can bounce top', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           maxExtent: 200,
@@ -43,8 +42,7 @@ void main() {
       expect(tester.getSheetHeight(), greaterThan(200));
     });
 
-    testWidgets('fit: with min extent: can bounce bottom',
-        (WidgetTester tester) async {
+    testWidgets('fit: with min extent: can bounce bottom', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           minExtent: 150,
@@ -61,8 +59,7 @@ void main() {
       expect(tester.getSheetTop(), greaterThan(kScreenRect.bottom - 150));
     });
 
-    testWidgets('expanded: with max extent: can bounce top',
-        (WidgetTester tester) async {
+    testWidgets('expanded: with max extent: can bounce top', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           fit: SheetFit.expand,
@@ -80,8 +77,7 @@ void main() {
       expect(tester.getSheetHeight(), greaterThan(200));
     });
 
-    testWidgets('expanded: with min extent: can bounce bottom',
-        (WidgetTester tester) async {
+    testWidgets('expanded: with min extent: can bounce bottom', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           fit: SheetFit.expand,
@@ -100,8 +96,7 @@ void main() {
       expect(tester.getSheetTop(), greaterThan(kScreenRect.bottom - 150));
     });
 
-    testWidgets('expanded: does not bounce outside viewport by default',
-        (WidgetTester tester) async {
+    testWidgets('expanded: does not bounce outside viewport by default', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           fit: SheetFit.expand,
@@ -118,8 +113,7 @@ void main() {
       expect(tester.getSheetHeight(), equals(kScreenHeight));
     });
 
-    testWidgets('expanded: can bounce top when overflowViewport is true',
-        (WidgetTester tester) async {
+    testWidgets('expanded: can bounce top when overflowViewport is true', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           fit: SheetFit.expand,

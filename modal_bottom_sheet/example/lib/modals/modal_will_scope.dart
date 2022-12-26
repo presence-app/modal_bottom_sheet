@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class ModalWillScope extends StatelessWidget {
   const ModalWillScope({Key? key}) : super(key: key);
@@ -34,8 +34,7 @@ class ModalWillScope extends StatelessWidget {
         return shouldClose;
       },
       child: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-            leading: Container(), middle: Text('Modal Page')),
+        navigationBar: CupertinoNavigationBar(leading: Container(), middle: Text('Modal Page')),
         child: Center(),
       ),
     ));

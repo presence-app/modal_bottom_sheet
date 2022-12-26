@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
 void main() {
   group('DefaultSheetController', () {
-    testWidgets('DefaultSheetController injects a SheetController',
-        (tester) async {
+    testWidgets('DefaultSheetController injects a SheetController', (tester) async {
       final childKey = UniqueKey();
       await tester.pumpWidget(
         MaterialApp(

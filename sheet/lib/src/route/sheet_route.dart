@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter/widgets.dart';
 import 'package:sheet/route.dart';
 import 'package:sheet/sheet.dart';
@@ -143,18 +143,15 @@ class SheetRoute<T> extends PageRoute<T> with DelegatedTransitionsRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
     return _SheetRouteContainer(sheetRoute: this);
   }
 
   @override
-  bool canTransitionTo(TransitionRoute<dynamic> nextRoute) =>
-      nextRoute is SheetRoute;
+  bool canTransitionTo(TransitionRoute<dynamic> nextRoute) => nextRoute is SheetRoute;
 
   @override
-  bool canTransitionFrom(TransitionRoute<dynamic> previousRoute) =>
-      previousRoute is PageRoute;
+  bool canTransitionFrom(TransitionRoute<dynamic> previousRoute) => previousRoute is PageRoute;
 
   /// {@macro flutter.widgets.modalRoute.maintainState}
   @override
@@ -164,23 +161,20 @@ class SheetRoute<T> extends PageRoute<T> with DelegatedTransitionsRoute<T> {
   bool get opaque => false;
 
   @override
-  bool canDriveSecondaryTransitionForPreviousRoute(
-      Route<dynamic> previousRoute) {
+  bool canDriveSecondaryTransitionForPreviousRoute(Route<dynamic> previousRoute) {
     return true;
   }
 
   @override
-  Widget buildSecondaryTransitionForPreviousRoute(BuildContext context,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildSecondaryTransitionForPreviousRoute(
+      BuildContext context, Animation<double> secondaryAnimation, Widget child) {
     return child;
   }
 
   /// Returns true if the controller should prevent popping for a given extent
   @protected
   bool shouldPreventPopForExtent(double extent) {
-    return extent < willPopThreshold &&
-        hasScopedWillPopCallback &&
-        controller!.velocity <= 0;
+    return extent < willPopThreshold && hasScopedWillPopCallback && controller!.velocity <= 0;
   }
 
   Widget buildSheet(BuildContext context, Widget child) {
@@ -367,20 +361,17 @@ class _PageBasedSheetRoute<T> extends SheetRoute<T> {
 }
 
 class _SheetRouteContainer extends StatefulWidget {
-  const _SheetRouteContainer({Key? key, required this.sheetRoute})
-      : super(key: key);
+  const _SheetRouteContainer({Key? key, required this.sheetRoute}) : super(key: key);
 
   final SheetRoute<dynamic> sheetRoute;
   @override
   __SheetRouteContainerState createState() => __SheetRouteContainerState();
 }
 
-class __SheetRouteContainerState extends State<_SheetRouteContainer>
-    with TickerProviderStateMixin {
+class __SheetRouteContainerState extends State<_SheetRouteContainer> with TickerProviderStateMixin {
   SheetRoute<dynamic> get route => widget.sheetRoute;
   SheetController get _sheetController => widget.sheetRoute._sheetController;
-  AnimationController get _routeController =>
-      widget.sheetRoute._routeAnimationController!;
+  AnimationController get _routeController => widget.sheetRoute._routeAnimationController!;
   @override
   void initState() {
     _routeController.addListener(onRouteAnimationUpdate);
@@ -412,8 +403,7 @@ class __SheetRouteContainerState extends State<_SheetRouteContainer>
         return;
       }
       if (!_routeController.isAnimating) {
-        final double animationValue =
-            _sheetController.animation.value.mapDistance(
+        final double animationValue = _sheetController.animation.value.mapDistance(
           fromLow: 0,
           fromHigh: route.initialExtent,
           toLow: 0,
@@ -436,8 +426,7 @@ class __SheetRouteContainerState extends State<_SheetRouteContainer>
     if (!_routeController.isAnimating) {
       return;
     }
-    if (!_firstAnimation &&
-        _routeController.value != _sheetController.animation.value) {
+    if (!_firstAnimation && _routeController.value != _sheetController.animation.value) {
       if (_routeController.status == AnimationStatus.forward) {
         final double animationValue = _routeController.value.mapDistance(
           fromLow: 0,

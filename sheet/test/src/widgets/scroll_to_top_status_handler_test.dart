@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/src/widgets/scroll_to_top_status_handler.dart';
 
 void main() {
-  testWidgets('Tap status bar scrolls primary scroll controller',
-      (WidgetTester tester) async {
+  testWidgets('Tap status bar scrolls primary scroll controller', (WidgetTester tester) async {
     final ScrollController controller = ScrollController();
     await tester.pumpWidget(MaterialApp(
       builder: (BuildContext context, Widget? child) {

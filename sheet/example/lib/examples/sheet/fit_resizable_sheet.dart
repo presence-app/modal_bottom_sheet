@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/sheet.dart';
 
 class FitResizableSheet extends StatefulWidget {
@@ -53,10 +53,7 @@ class _FitSheetState extends State<FitResizableSheet> {
           bottomNavigationBar: BottomAppBar(
             elevation: 4,
             child: Row(
-              children: <Widget>[
-                IconButton(
-                    icon: const Icon(Icons.access_alarm), onPressed: () {})
-              ],
+              children: <Widget>[IconButton(icon: const Icon(Icons.access_alarm), onPressed: () {})],
             ),
           ),
         ),

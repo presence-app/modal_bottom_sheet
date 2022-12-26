@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
@@ -9,8 +9,7 @@ void main() {
     () {
       Future<void> testInitStateAndDispose(
         WidgetTester tester,
-        Future<void> Function(BuildContext context, WidgetBuilder builder)
-            onPressed,
+        Future<void> Function(BuildContext context, WidgetBuilder builder) onPressed,
       ) async {
         int initState = 0, dispose = 0;
         await _pumpWidget(

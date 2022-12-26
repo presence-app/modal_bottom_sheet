@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -38,15 +38,13 @@ void main() {
         expect(rect.size, equals(screenRect.size));
         expect(rect.top, equals(screenRect.height - 400));
 
-        await tester.drag(find.byType(Sheet), const Offset(0.0, -200.0),
-            touchSlopY: 0.0);
+        await tester.drag(find.byType(Sheet), const Offset(0.0, -200.0), touchSlopY: 0.0);
         await tester.pumpAndSettle();
         rect = tester.getRect(find.byKey(key));
         expect(rect.size, equals(screenRect.size));
         expect(rect.top, equals(0));
 
-        await tester.drag(find.byType(Sheet), const Offset(0.0, 600.0),
-            touchSlopY: 0.0);
+        await tester.drag(find.byType(Sheet), const Offset(0.0, 600.0), touchSlopY: 0.0);
         await tester.pumpAndSettle();
         rect = tester.getRect(find.byKey(key));
         expect(rect.size, equals(screenRect.size));
@@ -69,16 +67,14 @@ void main() {
         expect(rect.size, equals(screenRect.size));
         expect(rect.top, equals(screenRect.height - 400));
 
-        await tester.drag(find.byType(Sheet), const Offset(0.0, -300.0),
-            touchSlopY: 0.0);
+        await tester.drag(find.byType(Sheet), const Offset(0.0, -300.0), touchSlopY: 0.0);
         await tester.pumpAndSettle();
         rect = tester.getRect(find.byKey(key));
         expect(rect.size, equals(screenRect.size));
         expect(rect.topLeft, equals(Offset(0, 0)));
       });
 
-      testWidgets('Linear drag overflow top with max extent',
-          (WidgetTester tester) async {
+      testWidgets('Linear drag overflow top with max extent', (WidgetTester tester) async {
         final GlobalKey key = GlobalKey();
 
         await tester.pumpApp(
@@ -95,16 +91,14 @@ void main() {
         expect(rect.height, equals(500));
         expect(rect.top, equals(screenRect.bottom - 400));
 
-        await tester.drag(find.byType(Sheet), const Offset(0.0, -300.0),
-            touchSlopY: 0.0);
+        await tester.drag(find.byType(Sheet), const Offset(0.0, -300.0), touchSlopY: 0.0);
         await tester.pumpAndSettle();
         rect = tester.getRect(find.byKey(key));
         expect(rect.height, equals(500));
         expect(rect.top, equals(100));
       });
 
-      testWidgets('Linear drag overflow bottom with min extent',
-          (WidgetTester tester) async {
+      testWidgets('Linear drag overflow bottom with min extent', (WidgetTester tester) async {
         final GlobalKey key = GlobalKey();
 
         await tester.pumpApp(
@@ -121,8 +115,7 @@ void main() {
         expect(rect.size, equals(screenRect.size));
         expect(rect.top, equals(screenRect.bottom - 400));
 
-        await tester.drag(find.byType(Sheet), const Offset(0.0, 600.0),
-            touchSlopY: 0.0);
+        await tester.drag(find.byType(Sheet), const Offset(0.0, 600.0), touchSlopY: 0.0);
         await tester.pumpAndSettle();
         rect = tester.getRect(find.byKey(key));
         expect(rect.size, equals(screenRect.size));
@@ -145,8 +138,7 @@ void main() {
         expect(rect.size, equals(screenRect.size));
         expect(rect.top, equals(screenRect.bottom - 400));
 
-        await tester.drag(find.byType(Sheet), const Offset(0.0, 600.0),
-            touchSlopY: 0.0);
+        await tester.drag(find.byType(Sheet), const Offset(0.0, 600.0), touchSlopY: 0.0);
         await tester.pumpAndSettle();
         rect = tester.getRect(find.byKey(key));
         expect(rect.size, equals(screenRect.size));

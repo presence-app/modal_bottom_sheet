@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -7,8 +7,7 @@ import '../../../screen_size_test.dart';
 
 void main() {
   group('Sheet with resizable', () {
-    testWidgets('has zero height when child has zero height',
-        (WidgetTester tester) async {
+    testWidgets('has zero height when child has zero height', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           resizable: true,
@@ -31,8 +30,7 @@ void main() {
       expect(tester.getSheetTop(), equals(kScreenRect.bottom));
     });
 
-    testWidgets('can have a initial extent same as screen heigth',
-        (WidgetTester tester) async {
+    testWidgets('can have a initial extent same as screen heigth', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           resizable: true,
@@ -58,8 +56,7 @@ void main() {
       expect(tester.getSheetTop(), equals(kScreenRect.bottom - 200));
     });
 
-    testWidgets(
-        'height is same as minResizableExtent when current extent is less than it ',
+    testWidgets('height is same as minResizableExtent when current extent is less than it ',
         (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
@@ -74,10 +71,8 @@ void main() {
         ),
       );
 
-      expect(tester.getSheetHeight(), equals(600),
-          reason: 'Height should be same as initialExtent');
-      expect(tester.getSheetTop(), equals(0),
-          reason: 'It should be positioned with a initialExtent');
+      expect(tester.getSheetHeight(), equals(600), reason: 'Height should be same as initialExtent');
+      expect(tester.getSheetTop(), equals(0), reason: 'It should be positioned with a initialExtent');
 
       await tester.dragFrom(
         tester.getTopLeft(findSheet()),
@@ -85,10 +80,8 @@ void main() {
         touchSlopY: 0.0,
       );
       await tester.pumpAndSettle();
-      expect(tester.getSheetTop(), kScreenRect.bottom - 100,
-          reason: 'It should be positioned with a initialExtent');
-      expect(tester.getSheetHeight(), equals(200),
-          reason: 'Height should be same as minResizableExtent');
+      expect(tester.getSheetTop(), kScreenRect.bottom - 100, reason: 'It should be positioned with a initialExtent');
+      expect(tester.getSheetHeight(), equals(200), reason: 'Height should be same as minResizableExtent');
     });
   });
 

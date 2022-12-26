@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class ExampleTile extends StatelessWidget {
   const ExampleTile({
@@ -60,8 +60,7 @@ class BaseScaffold extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             alignment: Alignment.center,
-            child: ListView.builder(
-                itemBuilder: (BuildContext context, int index) {
+            child: ListView.builder(itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 title: Text('Item $index'),
                 onTap: () {},

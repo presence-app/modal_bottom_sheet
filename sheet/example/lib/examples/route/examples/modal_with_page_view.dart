@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 class ModalWithPageView extends StatelessWidget {
   const ModalWithPageView({super.key});

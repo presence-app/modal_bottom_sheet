@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/sheet.dart';
 
 class FoldableScreenFloatingSheet extends StatefulWidget {
@@ -17,8 +17,7 @@ class _FitSheetState extends State<FoldableScreenFloatingSheet> {
   }
 
   void animateSheet() {
-    controller.relativeAnimateTo(1,
-        duration: const Duration(milliseconds: 400), curve: Curves.easeOut);
+    controller.relativeAnimateTo(1, duration: const Duration(milliseconds: 400), curve: Curves.easeOut);
   }
 
   @override

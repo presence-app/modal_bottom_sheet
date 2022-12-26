@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/sheet.dart';
 
 typedef SheetControllerCallback = void Function(SheetController controller);
@@ -14,8 +14,7 @@ typedef SheetControllerCallback = void Function(SheetController controller);
 ///
 ///
 class DefaultSheetController extends StatefulWidget {
-  const DefaultSheetController({Key? key, required this.child, this.onCreated})
-      : super(key: key);
+  const DefaultSheetController({Key? key, required this.child, this.onCreated}) : super(key: key);
 
   final Widget child;
 
@@ -23,9 +22,7 @@ class DefaultSheetController extends StatefulWidget {
   final SheetControllerCallback? onCreated;
 
   static SheetController? of(BuildContext context) {
-    return context
-        .dependOnInheritedWidgetOfExactType<_InheritedSheetController>()
-        ?.controller;
+    return context.dependOnInheritedWidgetOfExactType<_InheritedSheetController>()?.controller;
   }
 
   @override
@@ -43,8 +40,7 @@ class _DefaultSheetControllerState extends State<DefaultSheetController> {
 
   @override
   Widget build(BuildContext context) {
-    return _InheritedSheetController(
-        child: widget.child, controller: controller);
+    return _InheritedSheetController(child: widget.child, controller: controller);
   }
 
   @override
@@ -55,9 +51,7 @@ class _DefaultSheetControllerState extends State<DefaultSheetController> {
 }
 
 class _InheritedSheetController extends InheritedWidget {
-  const _InheritedSheetController(
-      {Key? key, required super.child, required this.controller})
-      : super(key: key);
+  const _InheritedSheetController({Key? key, required super.child, required this.controller}) : super(key: key);
 
   final SheetController controller;
 

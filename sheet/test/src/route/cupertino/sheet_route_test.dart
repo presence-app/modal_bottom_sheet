@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/route.dart';
 import 'package:sheet/src/route/cupertino/sheet_route.dart';
@@ -18,8 +18,7 @@ void main() {
       expect(find.text('Sheet'), findsOneWidget);
     });
 
-    testWidgets('animates previous route when using MaterialExtendedPageRoute',
-        (WidgetTester tester) async {
+    testWidgets('animates previous route when using MaterialExtendedPageRoute', (WidgetTester tester) async {
       await tester.pumpApp(SizedBox());
       final controller = Navigator.of(tester.contextForRootNavigator);
       controller.push(
@@ -33,8 +32,7 @@ void main() {
       expect(find.byType(CupertinoSheetBottomRouteTransition), findsOneWidget);
     });
 
-    testWidgets('animates previous route when using CupertinoExtendedPageRoute',
-        (WidgetTester tester) async {
+    testWidgets('animates previous route when using CupertinoExtendedPageRoute', (WidgetTester tester) async {
       await tester.pumpApp(SizedBox());
       final controller = Navigator.of(tester.contextForRootNavigator);
       controller.push(
@@ -67,8 +65,7 @@ void main() {
       expect(find.text('Sheet'), findsOneWidget);
     });
 
-    testWidgets('animates previous route when using MaterialExtendedPage',
-        (WidgetTester tester) async {
+    testWidgets('animates previous route when using MaterialExtendedPage', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
         builder: (context, child) {
           return Navigator(
@@ -84,8 +81,7 @@ void main() {
       expect(find.byType(CupertinoSheetBottomRouteTransition), findsOneWidget);
     });
 
-    testWidgets('animates previous route when using CupertinoExtendedPage',
-        (WidgetTester tester) async {
+    testWidgets('animates previous route when using CupertinoExtendedPage', (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
         builder: (context, child) {
           return Navigator(

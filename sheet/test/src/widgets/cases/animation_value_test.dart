@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -29,8 +29,7 @@ void main() {
       );
       expect(tester.getSheetController().animation.value, 1);
     });
-    testWidgets('is 0.5 when is between minExtent and maxExtent',
-        (tester) async {
+    testWidgets('is 0.5 when is between minExtent and maxExtent', (tester) async {
       await tester.pumpApp(
         Sheet(
           minExtent: 100,

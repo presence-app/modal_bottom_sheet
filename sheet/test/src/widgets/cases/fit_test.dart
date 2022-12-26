@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sheet/sheet.dart';
 
@@ -18,8 +18,7 @@ void main() {
       expect(tester.getSheetHeight(), equals(200));
     });
 
-    testWidgets('height is max height when child\'s height is infinite',
-        (WidgetTester tester) async {
+    testWidgets('height is max height when child\'s height is infinite', (WidgetTester tester) async {
       await tester.pumpApp(
         Sheet(
           child: Container(height: double.infinity),

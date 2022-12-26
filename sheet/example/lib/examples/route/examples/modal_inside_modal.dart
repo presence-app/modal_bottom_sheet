@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 import 'package:sheet/route.dart';
 
 class ModalInsideModal extends StatelessWidget {
@@ -30,8 +30,7 @@ class ModalInsideModal extends StatelessWidget {
                   title: Text('Item $index'),
                   onTap: () => Navigator.of(context).push(
                     CupertinoSheetRoute<void>(
-                      builder: (BuildContext context) =>
-                          ModalInsideModal(reverse: reverse),
+                      builder: (BuildContext context) => ModalInsideModal(reverse: reverse),
                     ),
                   ),
                 ),

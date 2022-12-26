@@ -1,7 +1,7 @@
 import 'package:example/modals/circular_modal.dart';
 import 'package:example/web_frame.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ModalBottomSheetRoute;
 
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
@@ -39,8 +39,7 @@ class MyApp extends StatelessWidget {
         switch (settings.name) {
           case '/':
             return MaterialWithModalsPageRoute(
-                builder: (_) => MyHomePage(title: 'Flutter Demo Home Page'),
-                settings: settings);
+                builder: (_) => MyHomePage(title: 'Flutter Demo Home Page'), settings: settings);
         }
         return MaterialPageRoute(
           builder: (context) => Scaffold(
@@ -52,8 +51,7 @@ class MyApp extends StatelessWidget {
                     middle: Text('Normal Navigation Presentation'),
                     trailing: GestureDetector(
                       child: Icon(Icons.arrow_upward),
-                      onTap: () =>
-                          CupertinoScaffold.showCupertinoModalBottomSheet(
+                      onTap: () => CupertinoScaffold.showCupertinoModalBottomSheet(
                         expand: true,
                         context: context,
                         backgroundColor: Colors.transparent,
@@ -66,8 +64,7 @@ class MyApp extends StatelessWidget {
                               right: 40,
                               bottom: 20,
                               child: MaterialButton(
-                                onPressed: () => Navigator.of(context).popUntil(
-                                    (route) => route.settings.name == '/'),
+                                onPressed: () => Navigator.of(context).popUntil((route) => route.settings.name == '/'),
                                 child: Text('Pop back home'),
                               ),
                             )
@@ -125,9 +122,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     ListTile(
                         title: Text('Cupertino Photo Share Example'),
-                        onTap: () => Navigator.of(context).push(
-                            MaterialWithModalsPageRoute(
-                                builder: (context) => CupertinoSharePage()))),
+                        onTap: () => Navigator.of(context)
+                            .push(MaterialWithModalsPageRoute(builder: (context) => CupertinoSharePage()))),
                     section('STYLES'),
                     ListTile(
                       title: Text('Material fit'),
@@ -208,8 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               builder: (context) => ModalWithNavigator(),
                             )),
                     ListTile(
-                      title:
-                          Text('Cupertino Navigator + Scroll + WillPopScope'),
+                      title: Text('Cupertino Navigator + Scroll + WillPopScope'),
                       onTap: () => showCupertinoModalBottomSheet(
                         expand: true,
                         context: context,
